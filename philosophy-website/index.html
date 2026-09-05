@@ -1,0 +1,779 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Андрей Леман | Философ, преподаватель, консультант</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Georgia', 'Times New Roman', serif;
+            line-height: 1.6;
+            color: #2c2c2c;
+            background-color: #f9f8f6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            background-color: #ffffff;
+            padding: 40px 0;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        .header-content {
+            display: flex;
+            align-items: center;
+            gap: 40px;
+        }
+
+        .profile-photo {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid #d4c4b7;
+        }
+
+        .header-text h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            color: #1a1a1a;
+        }
+
+        .header-text .subtitle {
+            font-size: 1.2em;
+            color: #666;
+            margin-bottom: 15px;
+        }
+
+        .header-text p {
+            font-size: 1em;
+            color: #444;
+            max-width: 600px;
+        }
+
+        /* Navigation */
+        nav {
+            background-color: #ffffff;
+            padding: 15px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #2c2c2c;
+            font-size: 1em;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: #8b7355;
+        }
+
+        /* Sections */
+        section {
+            padding: 80px 0;
+        }
+
+        h2 {
+            font-size: 2em;
+            text-align: center;
+            margin-bottom: 50px;
+            color: #1a1a1a;
+        }
+
+        /* Services */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .service-card {
+            background: #ffffff;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            transition: transform 0.3s;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .service-card h3 {
+            font-size: 1.4em;
+            margin-bottom: 15px;
+            color: #1a1a1a;
+        }
+
+        .service-card .price {
+            font-size: 1.2em;
+            color: #8b7355;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+
+        .service-card p {
+            color: #666;
+            margin-bottom: 20px;
+        }
+
+        .service-card .btn {
+            display: inline-block;
+            padding: 10px 25px;
+            background-color: #8b7355;
+            color: #ffffff;
+            text-decoration: none;
+            border-radius: 4px;
+            transition: background-color 0.3s;
+        }
+
+        .service-card .btn:hover {
+            background-color: #6d5a43;
+        }
+
+        /* Detailed Services Section */
+        .detailed-services {
+            background-color: #ffffff;
+        }
+
+        .service-detail {
+            max-width: 800px;
+            margin: 0 auto 50px;
+            padding: 30px;
+            background: #f9f8f6;
+            border-radius: 8px;
+        }
+
+        .service-detail h3 {
+            font-size: 1.6em;
+            margin-bottom: 20px;
+            color: #1a1a1a;
+        }
+
+        .service-detail h4 {
+            font-size: 1.2em;
+            margin: 20px 0 10px;
+            color: #8b7355;
+        }
+
+        .service-detail ul {
+            margin-left: 20px;
+            margin-bottom: 20px;
+        }
+
+        .service-detail li {
+            margin-bottom: 10px;
+            color: #444;
+        }
+
+        /* Social Proof */
+        .social-proof {
+            background-color: #ffffff;
+        }
+
+        .proof-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+        }
+
+        .proof-item {
+            text-align: center;
+            padding: 30px;
+        }
+
+        .proof-item h3 {
+            font-size: 1.4em;
+            margin-bottom: 15px;
+            color: #1a1a1a;
+        }
+
+        .proof-item p {
+            color: #666;
+            margin-bottom: 15px;
+        }
+
+        .proof-item .stat {
+            font-size: 2em;
+            color: #8b7355;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .proof-links {
+            text-align: center;
+            margin-top: 40px;
+        }
+
+        .proof-links a {
+            display: inline-block;
+            margin: 10px 15px;
+            color: #8b7355;
+            text-decoration: none;
+            font-size: 1.1em;
+        }
+
+        .proof-links a:hover {
+            text-decoration: underline;
+        }
+
+        /* Testimonials */
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+        }
+
+        .testimonial {
+            background: #ffffff;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+
+        .testimonial h4 {
+            font-size: 1.2em;
+            margin-bottom: 20px;
+            color: #8b7355;
+        }
+
+        .testimonial-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .before-after {
+            padding: 15px;
+            border-radius: 4px;
+        }
+
+        .before {
+            background: #fff5f5;
+            border-left: 3px solid #c92a2a;
+        }
+
+        .after {
+            background: #f0fff4;
+            border-left: 3px solid #2b8a3e;
+        }
+
+        .before h5, .after h5 {
+            font-size: 1em;
+            margin-bottom: 10px;
+            color: #1a1a1a;
+        }
+
+        .before p, .after p {
+            font-size: 0.9em;
+            color: #666;
+        }
+
+        /* Booking Form */
+        .booking-section {
+            background-color: #ffffff;
+        }
+
+        .booking-form {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 40px;
+            background: #f9f8f6;
+            border-radius: 8px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: #2c2c2c;
+            font-weight: bold;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #d0d0d0;
+            border-radius: 4px;
+            font-family: inherit;
+            font-size: 1em;
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 15px;
+            background-color: #8b7355;
+            color: #ffffff;
+            border: none;
+            border-radius: 4px;
+            font-size: 1.1em;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .submit-btn:hover {
+            background-color: #6d5a43;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #1a1a1a;
+            color: #ffffff;
+            padding: 40px 0;
+            text-align: center;
+        }
+
+        footer p {
+            margin-bottom: 10px;
+        }
+
+        footer a {
+            color: #d4c4b7;
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .profile-photo {
+                width: 150px;
+                height: 150px;
+            }
+
+            nav ul {
+                flex-wrap: wrap;
+                gap: 15px;
+            }
+
+            .testimonial-content {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <img src="https://via.placeholder.com/200x200/d4c4b7/2c2c2c?text=AL" alt="Андрей Леман" class="profile-photo">
+                <div class="header-text">
+                    <h1>Андрей Леман</h1>
+                    <p class="subtitle">Философ, преподаватель, автор проекта «Ставка Паскаля»</p>
+                    <p>Более 5 лет я помогаю людям применять философию к реальной жизни: разбираться в сложных жизненных ситуациях, находить смыслы и принимать уверенные решения.</p>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Navigation -->
+    <nav>
+        <div class="container">
+            <ul>
+                <li><a href="#about">Обо мне</a></li>
+                <li><a href="#services">Услуги</a></li>
+                <li><a href="#details">Подробно об услугах</a></li>
+                <li><a href="#proof">Подтверждение</a></li>
+                <li><a href="#testimonials">Отзывы</a></li>
+                <li><a href="#booking">Запись</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- About Section -->
+    <section id="about">
+        <div class="container">
+            <h2>Кратко обо мне</h2>
+            <div style="max-width: 800px; margin: 0 auto; text-align: center;">
+                <p style="font-size: 1.1em; color: #444; margin-bottom: 20px;">
+                    <strong>Образование:</strong> С отличием окончил аспирантуру по философии и этике (СКФУ), соискатель ученой степени.
+                </p>
+                <p style="font-size: 1.1em; color: #444; margin-bottom: 20px;">
+                    <strong>Опыт:</strong> 5+ лет преподавания и индивидуальных консультаций. Постоянный лектор Виктория Достоевского.
+                </p>
+                <p style="font-size: 1.1em; color: #444;">
+                    <strong>Проект:</strong> Автор популярного медиа-проекта «Ставка Паскаля» (50 000+ слушателей и читателей).
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services">
+        <div class="container">
+            <h2>Услуги</h2>
+            <div class="services-grid">
+                <!-- Service 1 -->
+                <div class="service-card">
+                    <h3>Философское консультирование</h3>
+                    <p class="price">Индивидуально</p>
+                    <p>Помощь в наведении порядка в мыслях, поиске ориентиров и принятии уверенных решений через философский диалог.</p>
+                    <a href="#details" class="btn">Подробнее</a>
+                </div>
+
+                <!-- Service 2 -->
+                <div class="service-card">
+                    <h3>Преподавание</h3>
+                    <p class="price">Групповые занятия</p>
+                    <p>Индивидуальное и групповое преподавание философии, помощь в освоении сложных концепций и развитии критического мышления.</p>
+                    <a href="#details" class="btn">Подробнее</a>
+                </div>
+
+                <!-- Service 3 -->
+                <div class="service-card">
+                    <h3>Философская беседа (с женой)</h3>
+                    <p class="price">Дуэт-консультация</p>
+                    <p>Уникальный формат беседы с двумя философами одновременно для глубокого анализа вашей ситуации с разных перспектив.</p>
+                    <a href="#details" class="btn">Подробнее</a>
+                </div>
+
+                <!-- Service 4 -->
+                <div class="service-card">
+                    <h3>Аналитика мировоззрения</h3>
+                    <p class="price">Пакет сессий (4-6 встреч)</p>
+                    <p>Глубокая работа по раскрытию и структурированию вашего мировоззрения через серию последовательных сессий.</p>
+                    <a href="#details" class="btn">Подробнее</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Detailed Services Section -->
+    <section id="details" class="detailed-services">
+        <div class="container">
+            <h2>Подробно об услугах</h2>
+            
+            <!-- Service Detail 1 -->
+            <div class="service-detail">
+                <h3>Философское консультирование: как навести порядок в мыслях и найти ориентиры</h3>
+                
+                <h4>С чем ко мне приходят?</h4>
+                <ul>
+                    <li><strong>Потеряли ориентиры:</strong> старые цели больше не вдохновляют, а куда двигаться дальше — непонятно.</li>
+                    <li><strong>Стоите перед сложным выбором:</strong> нужно принять важное решение (в работе, отношениях или жизни), но не хватает уверенности и четких аргументов.</li>
+                    <li><strong>Чувствуете хаос в голове:</strong> прежняя картина мира перестала работать, и хочется собрать новую — понятную, логичную и устойчивую.</li>
+                    <li><strong>Ищете глубокий разговор:</strong> вам не нужны банальные советы или универсальные рецепты. Вы ищете равного собеседника для серьезного, но открытого и честного диалога.</li>
+                </ul>
+
+                <h4>Чем это отличается от работы с психологом?</h4>
+                <p>Психолог работает с эмоциями, чувствами и прошлым опытом.<br>
+                Философский консультант помогает навести порядок в логике, ценностях и взглядах на будущее.<br>
+                Мы не «лечим» и не учим жить. Мы находим ошибки в рассуждениях, убираем лишний хаос в мыслях и помогаем вам сформировать собственную систему правил и смыслов.</p>
+
+                <h4>Что вы получите в результате?</h4>
+                <ul>
+                    <li><strong>Порядок в мыслях:</strong> поймете истинные причины своих сомнений и внутренних конфликтов.</li>
+                    <li><strong>Личные опоры:</strong> четко сформулируете собственные ценности, на которые сможете опираться в любой кризис.</li>
+                    <li><strong>Уверенность в решениях:</strong> перестанете действовать по указке чужих установок и научитесь мыслить самостоятельно.</li>
+                </ul>
+
+                <h4>Как проходят встречи?</h4>
+                <p><strong>Формат:</strong> Онлайн-встреча на 60 минут.<br>
+                <strong>Атмосфера:</strong> Живой диалог на равных, конфиденциальность, уважение к вашему мнению — без занудства, но с легкостью и юмором.</p>
+            </div>
+
+            <!-- Service Detail 2 -->
+            <div class="service-detail">
+                <h3>Преподавание философии</h3>
+                
+                <h4>Для кого это?</h4>
+                <ul>
+                    <li>Студенты, нуждающиеся в помощи с учебным материалом</li>
+                    <li>Люди, желающие глубоко изучить философию для себя</li>
+                    <li>Группы, интересующиеся совместным изучением философских концепций</li>
+                </ul>
+
+                <h4>Что входит?</h4>
+                <ul>
+                    <li>Индивидуальный подход к каждому ученику</li>
+                    <li>Разбор сложных философских текстов и концепций</li>
+                    <li>Развитие критического мышления и навыков аргументации</li>
+                    <li>Подготовка к экзаменам и академической работе</li>
+                </ul>
+            </div>
+
+            <!-- Service Detail 3 -->
+            <div class="service-detail">
+                <h3>Философская беседа (дуэт-консультация)</h3>
+                
+                <h4>Уникальный формат</h4>
+                <p>Вместе с моей женой мы проводим специальные сессии, где ваша проблема рассматривается с двух различных философских перспектив одновременно.</p>
+
+                <h4>Преимущества формата:</h4>
+                <ul>
+                    <li>Два независимых взгляда на вашу ситуацию</li>
+                    <li>Более полный анализ проблемы</li>
+                    <li>Диалог между консультантами моделирует философскую дискуссию</li>
+                    <li>Уникальный опыт, который высоко оценивают наши клиенты</li>
+                </ul>
+            </div>
+
+            <!-- Service Detail 4 -->
+            <div class="service-detail">
+                <h3>Аналитика мировоззрения</h3>
+                
+                <h4>Глубокая работа над вашим мировоззрением</h4>
+                <p>Это не просто разовая консультация по проблеме, а системная работа по раскрытию и структурированию вашего мировоззрения.</p>
+
+                <h4>Форматы:</h4>
+                <ul>
+                    <li><strong>4 сессии по 1.5 часа</strong> — интенсивный курс</li>
+                    <li><strong>6 сессий по 1 часу</strong> — распределённая работа</li>
+                </ul>
+
+                <h4>Результат:</h4>
+                <ul>
+                    <li>Чёткое понимание ваших фундаментальных убеждений</li>
+                    <li>Выявление противоречий в картине мира</li>
+                    <li>Построение целостной системы взглядов</li>
+                    <li>Инструменты для самостоятельного философского анализа</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Social Proof Section -->
+    <section id="proof" class="social-proof">
+        <div class="container">
+            <h2>Подтверждение экспертизы</h2>
+            <div class="proof-grid">
+                <div class="proof-item">
+                    <div class="stat">5+</div>
+                    <h3>Лет опыта</h3>
+                    <p>Преподавания и индивидуальных консультаций</p>
+                </div>
+                <div class="proof-item">
+                    <div class="stat">50 000+</div>
+                    <h3>Подписчиков</h3>
+                    <p>Автор просветительского проекта «Ставка Паскаля»</p>
+                </div>
+                <div class="proof-item">
+                    <div class="stat">Постоянный</div>
+                    <h3>Лектор</h3>
+                    <p>Виктория Достоевского</p>
+                </div>
+            </div>
+            
+            <div class="proof-links">
+                <a href="#" target="_blank">📺 Канал YouTube</a>
+                <a href="#" target="_blank">🎙️ Подкаст «Ставка Паскаля»</a>
+                <a href="#" target="_blank">📚 Избранные лекции</a>
+                <a href="#" target="_blank">🏛️ Философский клуб</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials">
+        <div class="container">
+            <h2>Отзывы клиентов</h2>
+            <div class="testimonials-grid">
+                <!-- Testimonial 1 -->
+                <div class="testimonial">
+                    <h4>Работа с жизненным выбором</h4>
+                    <div class="testimonial-content">
+                        <div class="before-after before">
+                            <h5>До</h5>
+                            <p>«Обратился с проблемой выбора между двумя карьерными путями. Не мог определиться, чувствовал растерянность.»</p>
+                        </div>
+                        <div class="before-after after">
+                            <h5>После</h5>
+                            <p>«Разобрался в своих истинных ценностях. Принял осознанное решение и чувствую уверенность в выборе.»</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Testimonial 2 -->
+                <div class="testimonial">
+                    <h4>Преодоление экзистенциального кризиса</h4>
+                    <div class="testimonial-content">
+                        <div class="before-after before">
+                            <h5>До</h5>
+                            <p>«Потерял смыслы, старые цели не вдохновляли. Ощущение пустоты и непонимания куда двигаться.»</p>
+                        </div>
+                        <div class="before-after after">
+                            <h5>После</h5>
+                            <p>«Нашёл новые ориентиры. Сформировал понятную картину мира. Появилась внутренняя опора.»</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Testimonial 3 -->
+                <div class="testimonial">
+                    <h4>Работа с убеждениями</h4>
+                    <div class="testimonial-content">
+                        <div class="before-after before">
+                            <h5>До</h5>
+                            <p>«Мешали ложные убеждения, навязанные извне. Постоянные внутренние конфликты и сомнения.»</p>
+                        </div>
+                        <div class="before-after after">
+                            <h5>После</h5>
+                            <p>«Выявил и переосмыслил деструктивные убеждения. Научился мыслить самостоятельно и критически.»</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Booking Section -->
+    <section id="booking" class="booking-section">
+        <div class="container">
+            <h2>Запись на консультацию</h2>
+            <div class="booking-form">
+                <form id="consultationForm">
+                    <div class="form-group">
+                        <label for="name">Ваше имя *</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">Email *</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="phone">Телефон</label>
+                        <input type="tel" id="phone" name="phone">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="service">Выберите услугу *</label>
+                        <select id="service" name="service" required>
+                            <option value="">-- Выберите --</option>
+                            <option value="consulting">Философское консультирование</option>
+                            <option value="teaching">Преподавание</option>
+                            <option value="duet">Философская беседа (дуэт)</option>
+                            <option value="worldview">Аналитика мировоззрения</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="message">Опишите ваш запрос *</label>
+                        <textarea id="message" name="message" placeholder="Кратко опишите, с какой проблемой вы хотели бы поработать..." required></textarea>
+                    </div>
+
+                    <button type="submit" class="submit-btn">Отправить заявку</button>
+                    
+                    <p style="margin-top: 20px; font-size: 0.9em; color: #666; text-align: center;">
+                        После отправки заявки я свяжусь с вами в течение 24 часов для согласования времени и деталей оплаты.
+                    </p>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>Андрей Леман © 2025</p>
+            <p>Философ, преподаватель, консультант</p>
+            <p>Проект «Ставка Паскаля»</p>
+            <p style="margin-top: 20px;">
+                <a href="#">Telegram</a> | 
+                <a href="#">ВКонтакте</a> | 
+                <a href="#">YouTube</a>
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('nav a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Form submission handler
+        document.getElementById('consultationForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Get form data
+            const formData = new FormData(this);
+            const data = Object.fromEntries(formData.entries());
+            
+            // In a real implementation, this would send data to a server
+            // For now, we'll just show a confirmation message
+            alert('Спасибо за заявку! Я свяжусь с вами в ближайшее время.');
+            
+            // Reset form
+            this.reset();
+            
+            // Log data (for development)
+            console.log('Заявка:', data);
+        });
+
+        // Add some animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe service cards and testimonials
+        document.querySelectorAll('.service-card, .testimonial, .proof-item').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(20px)';
+            el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>
