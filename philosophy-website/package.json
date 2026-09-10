@@ -1,0 +1,17 @@
+{
+  "name": "philosophy-website",
+  "version": "1.0.0",
+  "description": "Сайт-визитка для преподавателя философии Андрея Лемана",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js",
+    "build": "echo 'Build not required - static site'"
+  },
+  "engines": {
+    "node": ">=14.0.0"
+  },
+  "keywords": ["philosophy", "consulting", "website"],
+  "author": "Andrey Leman",
+  "license": "MIT"
+}
