@@ -1,0 +1,36 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+/// Заявка на сессию. Один слот = одна бронь.
+model Booking {
+  id          String   @id @default(cuid())
+  serviceSlug String
+  serviceName String
+  priceRub    Int
+  durationMin Int
+  startsAt    DateTime
+  endsAt      DateTime
+
+  name     String
+  email    String
+  phone    String?
+  telegram String?
+  message  String?
+
+  /// pending_payment | paid | confirmed | cancelled
+  status      String  @default("pending_payment")
+  paymentId   String?
+  gcalEventId String?
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([startsAt])
+  @@index([status])
+}
