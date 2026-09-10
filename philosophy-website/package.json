@@ -1,17 +1,47 @@
 {
   "name": "philosophy-website",
-  "version": "1.0.0",
-  "description": "Сайт-визитка для преподавателя философии Андрея Лемана",
-  "main": "server.js",
+  "version": "2.0.0",
+  "private": true,
+  "description": "Сайт-визитка философского консультанта Андрея Лемана: запись на сессии и онлайн-оплата",
+  "author": "Andrey Leman",
+  "license": "MIT",
   "scripts": {
-    "start": "node server.js",
-    "dev": "node server.js",
-    "build": "echo 'Build not required - static site'"
+    "dev": "next dev",
+    "build": "prisma generate && next build",
+    "vercel-build": "prisma generate && prisma migrate deploy && next build",
+    "start": "next start",
+    "lint": "next lint",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "prisma:generate": "prisma generate",
+    "prisma:migrate": "prisma migrate dev",
+    "prisma:studio": "prisma studio",
+    "bookings:confirm": "tsx scripts/confirm-booking.ts",
+    "postinstall": "prisma generate"
+  },
+  "dependencies": {
+    "@prisma/client": "^6.1.0",
+    "google-auth-library": "^9.15.0",
+    "googleapis": "^144.0.0",
+    "next": "^15.1.3",
+    "nodemailer": "^6.9.16",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "zod": "^3.24.1"
+  },
+  "devDependencies": {
+    "@tailwindcss/postcss": "^4.0.0",
+    "@types/node": "^22.10.2",
+    "@types/nodemailer": "^6.4.17",
+    "@types/react": "^19.0.2",
+    "@types/react-dom": "^19.0.2",
+    "prisma": "^6.1.0",
+    "tailwindcss": "^4.0.0",
+    "tsx": "^4.19.2",
+    "typescript": "^5.7.2",
+    "vitest": "^2.1.8"
   },
   "engines": {
-    "node": ">=14.0.0"
-  },
-  "keywords": ["philosophy", "consulting", "website"],
-  "author": "Andrey Leman",
-  "license": "MIT"
+    "node": ">=18.18.0"
+  }
 }

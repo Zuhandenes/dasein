@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="1000" viewBox="0 0 800 1000" role="img" aria-label="Фото будет добавлено">
+  <rect width="800" height="1000" fill="#f3efe5"/>
+  <rect x="1" y="1" width="798" height="998" fill="none" stroke="#e4dccf" stroke-width="2"/>
+  <circle cx="400" cy="410" r="150" fill="#e4dccf"/>
+  <path d="M180 860c0-140 99-250 220-250s220 110 220 250z" fill="#e4dccf"/>
+  <text x="400" y="940" text-anchor="middle" font-family="Georgia, serif" font-size="30" fill="#6b5b4f">Андрей Леман</text>
+</svg>
